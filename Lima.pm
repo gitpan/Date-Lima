@@ -9,10 +9,10 @@ use AutoLoader qw(AUTOLOAD);
 
 our @ISA = qw(Exporter);
 
-our %EXPORT_TAGS = ( 'all' => [ qw() ] ); 
+our %EXPORT_TAGS = ( 'all' => [ qw(beek_date set_pre_element_string set_post_element_string) ] ); 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-our @EXPORT = qw( beek_date set_pre_element_string set_post_element_string );
-our $VERSION = '1';
+our @EXPORT = qw( );
+our $VERSION = '1.1';
 
 my %trans;
 
@@ -89,7 +89,7 @@ Date::Lima - Perl extension for dates like those from
 
 =head2 Simple
 
-    use Date::Lima;
+    use Date::Lima qw/beek_date/;
 
     for $i (25, 85, 300, 6000, 7654, 10000, 7654321) {
         printf "\%7d seconds: \%s\n", $i, beek_date($i);
@@ -97,7 +97,7 @@ Date::Lima - Perl extension for dates like those from
 
 =head2 Webified
 
-    use Date::Lima
+    use Date::Lima qw/:all/;
     use CGI qw/:html/;
 
     my $a = new CGI;

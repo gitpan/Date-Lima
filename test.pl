@@ -1,6 +1,6 @@
 END {print "ok 1\n" if $loaded;}
 
-use Date::Lima;
+use Date::Lima qw/beek_date/;
 
 $loaded = 1;
 
