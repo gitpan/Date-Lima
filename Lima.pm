@@ -12,7 +12,7 @@ our @ISA = qw(Exporter);
 our %EXPORT_TAGS = ( 'all' => [ qw(beek_date set_pre_element_string set_post_element_string) ] ); 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw( );
-our $VERSION = '1.1';
+our $VERSION = '1.2';
 
 my %trans;
 
@@ -80,10 +80,9 @@ sub beek_date {
 
 __END__
 
-=head1 Blurb
+=head1 NAME
 
-Date::Lima - Perl extension for dates like those from 
-             conv_date() in the Lima mudlib (2d4h1m4s).
+Date::Lima Perl extension for dates like those from conv_date() in the Lima mudlib (2d4h1m4s).
 
 =head1 A brief example
 
