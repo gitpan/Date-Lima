@@ -1,20 +1,20 @@
 =head1 NAME
 
-Date::Lima - A time interval format (2d4h1m4s) like convert_time() from Lima mudlib.
+Time::DeltaString - A time interval format (2d4h1m4s) like convert_time() from Lima mudlib.
 
 =head1 SYNOPSIS
 
-    use Date::Lima qw/beek_date/;
+    use Time::DeltaString qw/delta_string/;
 
-    my $d1 = beek_date( "127:34" ); # 1h40m
-    my $d2 = beek_date("2:46:40" ); # 2h46m40s
-    my $d3 = beek_date( 7654321 );  # 2mo4w14h12m1s
+    my $d1 = delta_string( "127:34" ); # 1h40m
+    my $d2 = delta_string("2:46:40" ); # 2h46m40s
+    my $d3 = delta_string( 7654321 );  # 2mo4w14h12m1s
 
 =head1 ALTERNATE CONVERSIONS
 
 There are a few prebuilt conversions you can use.
 
-    use Date::Lima qw(:all);
+    use Time::DeltaString qw(:all);
 
 =over 4
 
@@ -22,20 +22,20 @@ There are a few prebuilt conversions you can use.
 
     nomonth_conversions();
 
-    my $d4 = beek_date( 7654321 );  # 12w4d14h12m1s
+    my $d4 = delta_string( 7654321 );  # 12w4d14h12m1s
 
 =item C<weeklargest_conversions()> eliminates both the year and the month conversion.
 
     weeklargest_conversions();
 
-    my $d5 = beek_date( 7654321 );  # 12w4d14h12m1s
+    my $d5 = delta_string( 7654321 );  # 12w4d14h12m1s
 
-=item C<@Date::Lima::conversions>
+=item C<@Time::DeltaString::conversions>
 
 There will obviously be some disagreement about how long a "week" or a "month"
 is.  You can define your own in this way:
 
-    @Date::Lima::conversions = (
+    @Time::DeltaString::conversions = (
         [ W => 11987 ], # prime number time units...
         [ Z => 5003 ],  # prime number time units...
         [ h => 60*60 ],

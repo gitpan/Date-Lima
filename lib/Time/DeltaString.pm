@@ -1,11 +1,11 @@
-package Date::Lima;
+package Time::DeltaString;
 
 use strict;
 use warnings;
 use base 'Exporter';
 use Carp;
 
-our %EXPORT_TAGS = ( 'all' => [ qw(beek_date default_conversions nomonth_conversions weeklargest_conversions) ] ); 
+our %EXPORT_TAGS = ( 'all' => [ qw(delta_string default_conversions nomonth_conversions weeklargest_conversions) ] ); 
 our @EXPORT_OK   = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT;
 our $VERSION = '1.4';
@@ -66,7 +66,7 @@ sub to_secs {
     croak "time format not understood";
 }
 
-sub beek_date {
+sub delta_string {
     my $s = shift;
 
     if ( $s =~ m/:/ ) {
