@@ -10,10 +10,17 @@ Time::DeltaString - A time interval format (2d4h1m4s) like convert_time() from L
     my $d2 = delta_string("2:46:40" ); # 2h46m40s
     my $d3 = delta_string( 7654321 );  # 2mo4w14h12m1s
 
+    my $ds = rev("9h22m5s"); # 33_725
+
 =head2 B<delta_string()>
 
 L<delta_string()> takes a single argument.  The argument can be a number of
 seconds, an hours-minutes string, or an hours-minutes-seconds string.
+
+=head2 B<rev()> B<interval2seconds()>
+
+L<rev()> (aka L<interval2seconds()>) does the reverse of L<delta_string()>:
+converts interval format back to seconds.
 
 =head1 TUNING CONVERSIONS
 
@@ -48,6 +55,23 @@ Ignore the hours, minutes and seconds
 
     daysmallest_conversions();
     my $days = delta_string(86400*32 + 3600*12 + 77); # 1mo2d
+
+=item B<sidereal_conversions()>
+
+Use the sidereal year length as an important unit for C<y> and C<mo>.
+
+    my $sidereal_year  = 365.256_363_051 * 24 * 60 * 60;
+    my $sidereal_month = $sidereal_year / 12;
+
+    @conversions = (
+        [  y => $sidereal_year  ],
+        [ mo => $sidereal_month ],
+
+        [  w => 7*24*60*60 ],
+        [  d =>   24*60*60 ],
+        [  h =>      60*60 ],
+        [  m =>         60 ],
+    );
 
 =item B<default_conversions()>
 
